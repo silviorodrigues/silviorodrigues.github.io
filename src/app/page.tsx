@@ -1,5 +1,9 @@
 export default function Home() {
   return (
-    <h1>Hey.</h1>
+    <div className="flex flex-col justify-center">
+      <p className="font-bold text-7xl">
+        Hey 👋
+      </p>
+    </div>
   )
 }
