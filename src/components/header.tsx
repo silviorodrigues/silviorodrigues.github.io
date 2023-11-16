@@ -1,7 +1,9 @@
+import Link from 'next/link';
+
 export default function Header() {
   return (
     <header className="sm:p-4 sm:flex-row flex-col flex items-center justify-between">
-      <a href="#" className="font-bold p-4">
+      <Link href="/" className="font-bold p-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="inline-block w-6 h-6 mr-2"
@@ -12,18 +14,18 @@ export default function Header() {
         </svg>
 
         Silvio Rodrigues
-      </a>
+      </Link>
 
       <nav className="flex sm:gap-12">
-        <a href="#" className="p-4 font-semibold text-neutral-400">
+        <Link href="/about" className="p-4 font-semibold text-neutral-400">
           About
-        </a>
-        <a href="#" className="p-4 font-semibold text-neutral-400">
+        </Link>
+        <Link href="/projects" className="p-4 font-semibold text-neutral-400">
           Projects
-        </a>
-        <a href="#" className="p-4 font-semibold text-neutral-400">
-          Setup
-        </a>
+        </Link>
+        <Link href="/tools" className="p-4 font-semibold text-neutral-400">
+          Tools
+        </Link>
       </nav>
     </header>
   )
