@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" className={raleway.className}>
       <body className="bg-neutral-900 text-neutral-50 flex flex-col min-h-screen">
         <Header/>
-        <main className="container mx-auto py-8 flex-1 flex">
+        <main className="container mx-auto p-8 flex-1 flex">
           {children}
         </main>
         <Footer/>
