@@ -10,6 +10,6 @@
     @apply text-neutral-100 underline underline-offset-8 decoration-2;
   }
   .nav-hover {
-    @apply text-neutral-100 bg-neutral-800 rounded-lg transition duration-300;
+    @apply text-neutral-100 [&:not(.nav-active)]:bg-neutral-800 rounded-lg transition duration-300;
   }
 }
