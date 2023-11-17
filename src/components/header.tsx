@@ -1,6 +1,12 @@
+'use client'
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 export default function Header() {
+  const pathName = usePathname();
+  const activeLink = (url: string) => pathName === url ? 'nav-active' : '';
+
   return (
     <header className="sm:p-4 sm:flex-row flex-col flex items-center justify-between">
       <Link href="/" className="font-bold p-4">
@@ -16,14 +22,14 @@ export default function Header() {
         Silvio Rodrigues
       </Link>
 
-      <nav className="flex sm:gap-12">
-        <Link href="/about" className="p-4 font-semibold text-neutral-400">
+      <nav className="flex items-center sm:gap-12">
+        <Link href="/about" className={`nav ${activeLink('/about')}`}>
           About
         </Link>
-        <Link href="/projects" className="p-4 font-semibold text-neutral-400">
+        <Link href="/projects" className={`nav ${activeLink('/projects')}`}>
           Projects
         </Link>
-        <Link href="/tools" className="p-4 font-semibold text-neutral-400">
+        <Link href="/tools" className={`nav ${activeLink('/tools')}`}>
           Tools
         </Link>
       </nav>

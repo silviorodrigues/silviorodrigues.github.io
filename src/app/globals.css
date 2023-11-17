@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav {
+    @apply text-neutral-400 px-4 py-2 font-semibold hover:nav-hover;
+  }
+  .nav-active {
+    @apply text-neutral-100 underline underline-offset-8 decoration-2;
+  }
+  .nav-hover {
+    @apply text-neutral-100 bg-neutral-800 rounded-lg transition duration-300;
+  }
+}
