@@ -7,7 +7,10 @@ import Footer from '@/components/footer'
 const raleway = Raleway({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Silvio Rodrigues',
+  title: {
+    template: '%s | Silvio Rodrigues',
+    default: 'Silvio Rodrigues',
+  },
 }
 
 export default function RootLayout({

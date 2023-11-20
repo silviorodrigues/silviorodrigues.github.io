@@ -1,3 +1,9 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tools',
+}
+
 export default function Tools() {
   return (
     <div className="flex flex-col justify-center">
