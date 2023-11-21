@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={raleway.className}>
-      <body className="bg-neutral-900 text-neutral-50 flex flex-col min-h-screen">
+      <body className="bg-neutral-900 text-neutral-50 flex flex-col min-h-screen min-h-[100svh]">
         <Header/>
         <main className="container mx-auto p-8 flex-1 flex">
           {children}
