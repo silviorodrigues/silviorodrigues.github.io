@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image'
+import profilePicture from 'public/images/profile-picture.png';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -7,15 +8,17 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="flex flex-col pt-16 lg:pt-[100px] xl:px-[150px] leading-8">
+    <div className="flex flex-col lg:pt-[100px] xl:px-[150px] leading-8">
       <div className="lg:flex lg:gap-24">
         <Image
-          src="/images/profile-picture.png"
+          src={profilePicture}
           alt="Picture of Silvio Rodrigues"
-          width="400"
-          height="400"
           className="rounded-lg xl:mb-0 mb-8"
-          priority={true}
+          placeholder="blur"
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
         />
 
         <div>
@@ -31,10 +34,10 @@ export default function About() {
         </div>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-12 lg:mt-16">
         <h2 className="font-bold text-4xl mb-8">Career</h2>
 
-        <div className="my-12">
+        <div className="my-8 lg:my-12">
           <h3 className="font-bold text-lg mb-2">Senior Front End Developer</h3>
           <p className="text-neutral-400">
             <a
@@ -50,7 +53,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="my-12">
+        <div className="my-8 lg:my-12">
           <h3 className="font-bold text-lg mb-2">Front End Developer</h3>
           <p className="text-neutral-400">
             <a
@@ -66,7 +69,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="my-12">
+        <div className="my-8 lg:my-12">
           <h3 className="font-bold text-lg mb-2">Front End Developer</h3>
           <p className="text-neutral-400">
             <a
@@ -82,7 +85,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="my-12">
+        <div className="my-8 lg:my-12">
           <h3 className="font-bold text-lg mb-2">Front End Developer</h3>
           <p className="text-neutral-400">
             <a
@@ -98,7 +101,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="my-12">
+        <div className="my-8 lg:my-12">
           <h3 className="font-bold text-lg mb-2">Front End Developer</h3>
           <p className="text-neutral-400">
             <a
@@ -114,7 +117,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="my-12">
+        <div className="my-8 lg:my-12">
           <h3 className="font-bold text-lg mb-2">Founder & Web Developer</h3>
           <p className="text-neutral-400">
             <span
