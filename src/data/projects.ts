@@ -13,7 +13,7 @@ const projects = [
       </svg>
     `,
     url: 'https://frontinvale.com.br',
-    description: 'The biggest front-end conference in Vale do Paraíba region, Brazil. Every year, we bring together around 500 people, dozens of speakers and tech companies to discuss code, UI, UX and best practices.',
+    description: 'The largest front-end conference in the Vale do Paraíba region, Brazil. Every year, we bring together around 500 people, dozens of speakers and tech companies to discuss code, UI, UX and best practices.',
     highlight: '3k+ people impacted'
   }
 ]
