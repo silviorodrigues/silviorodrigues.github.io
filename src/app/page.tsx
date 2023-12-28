@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import career from './data/career';
+import career from '@/data/career';
 
 export default function Home() {
   return (

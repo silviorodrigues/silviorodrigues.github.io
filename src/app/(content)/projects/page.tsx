@@ -1,3 +1,4 @@
+import PageTitle from '@/components/page-title';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,10 +7,8 @@ export const metadata: Metadata = {
 
 export default function Projects() {
   return (
-    <div className="flex flex-col justify-center">
-      <p className="font-bold text-7xl">
-        My Projects 🧪
-      </p>
-    </div>
+    <>
+      <PageTitle text="My projects" emoji="🧪"/>
+    </>
   )
 }

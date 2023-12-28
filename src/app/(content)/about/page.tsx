@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Image from 'next/image'
 import profilePicture from 'public/images/profile-picture.png';
-import career from '../data/career';
+import career from '@/data/career';
+import PageTitle from '@/components/page-title';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -30,10 +31,8 @@ export default function About() {
     })
 
   return (
-    <div className="flex flex-col lg:pt-[80px] xl:px-[150px] leading-8">
-      <h1 className="font-bold text-5xl mb-12">
-        <span className="linear-wipe">About me</span> 🎙️
-      </h1>
+    <>
+      <PageTitle text="About me" emoji="🎙️"/>
 
       <div className="lg:flex lg:gap-24">
         <Image
@@ -65,6 +64,6 @@ export default function About() {
 
         { renderCareer() }
       </div>
-    </div>
+    </>
   )
 }
