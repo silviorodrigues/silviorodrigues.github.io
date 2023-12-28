@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="flex flex-col lg:pt-[100px] xl:px-[150px] leading-8">
+    <div className="flex flex-col lg:pt-[80px] xl:px-[150px] leading-8">
+      <h1 className="font-bold text-5xl mb-12">
+        <span className="linear-wipe">About me</span> 🎙️
+      </h1>
+
       <div className="lg:flex lg:gap-24">
         <Image
           src={profilePicture}
