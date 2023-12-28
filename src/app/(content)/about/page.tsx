@@ -34,7 +34,7 @@ export default function About() {
     <>
       <PageTitle text="About me" emoji="🎙️"/>
 
-      <div className="lg:flex lg:gap-24">
+      <section className="lg:flex lg:gap-24">
         <Image
           src={profilePicture}
           alt="Picture of Silvio Rodrigues"
@@ -57,13 +57,13 @@ export default function About() {
           I love lists, planning things and I&apos;ve been trying to <strong className="text-neutral-200">create some side projects</strong>. Outside of work life, I like trying new beers and watching soccer (yes, I have a list for those things too).
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-12 lg:mt-16">
+      <section className="mt-12 lg:mt-16">
         <h2 className="font-bold text-4xl mb-8">Career</h2>
 
         { renderCareer() }
-      </div>
+      </section>
     </>
   )
 }
