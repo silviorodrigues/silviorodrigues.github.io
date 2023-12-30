@@ -132,7 +132,7 @@ const tools: ToolsType = {
       },
       {
         name: 'Nubank',
-        description: 'Brazilian neo-bank that I have been using it since its launch',
+        description: 'Brazilian neo-bank that I have been using since its launch',
         url: 'https://nubank.com.br/en/'
       }
     ]
