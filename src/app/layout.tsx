@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description: 'Senior Front End developer, beginner maker.',
   openGraph: {
-    images: '/images/social.jpg'
+    images: 'https://www.silviorodrigues.dev/images/social.jpg'
   }
 }
 
