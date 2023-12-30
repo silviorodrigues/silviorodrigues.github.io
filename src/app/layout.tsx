@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     template: '%s | Silvio Rodrigues',
     default: 'Silvio Rodrigues',
   },
+  description: 'Senior Front End developer, beginner maker.',
+  openGraph: {
+    images: '/images/social.jpg'
+  }
 }
 
 export default function RootLayout({

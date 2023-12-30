@@ -6,6 +6,7 @@ import PageTitle from '@/components/page-title';
 
 export const metadata: Metadata = {
   title: 'About',
+  description: 'I am Silvio Rodrigues, a software engineer (Front End) from Brazil 🇧🇷 living in Toronto, Canada 🇨🇦.'
 }
 
 export default function About() {

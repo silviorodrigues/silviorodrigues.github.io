@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Projects',
+  description: 'My personal projects, made with <3',
 }
 
 export default function Projects() {

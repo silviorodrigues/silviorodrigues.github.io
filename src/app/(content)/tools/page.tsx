@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Tools',
+  description: 'A list of software and hardware I use',
 }
 
 export default function Tools() {
