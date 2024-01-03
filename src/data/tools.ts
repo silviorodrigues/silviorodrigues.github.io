@@ -84,7 +84,7 @@ const tools: ToolsType = {
       {
         name: 'Notion',
         description: 'My second brain. Ideas, to-do lists, notes, everything is concentrated here',
-        url: 'https://www.notion.so/'
+        url: 'https://affiliate.notion.so/9fjuupw333vo'
       },
       {
         name: '1Password',
