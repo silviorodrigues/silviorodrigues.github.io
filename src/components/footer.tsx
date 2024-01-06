@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="p-4 flex items-center justify-center">
       <nav className="flex sm:gap-12 gap-4">
-        {/* <a href="mailto:hi@silviorodrigues.dev" className="p-4 text-neutral-400">
+        <a href="mailto:hi@silviorodrigues.dev" className="p-4 text-neutral-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"
@@ -12,7 +12,7 @@ export default function Footer() {
             <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
             <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
           </svg>
-        </a> */}
+        </a>
         <a href="https://www.linkedin.com/in/silviorrr/" target="_blank" className="p-4 text-neutral-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
