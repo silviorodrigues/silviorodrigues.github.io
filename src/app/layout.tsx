@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
-import { Raleway } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
 import { Analytics } from '@vercel/analytics/react'
+import { Raleway } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
+import type { Metadata } from 'next'
 
 const raleway = Raleway({ subsets: ['latin'] })
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <main className="container mx-auto p-8 flex-1 flex">
           {children}
           <Analytics />
+          <SpeedInsights />
         </main>
         <Footer/>
       </body>
