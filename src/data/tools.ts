@@ -9,8 +9,6 @@ type Tool = {
   name: string;
   description: string;
   url: string;
-  code?: string;
-  bonus?: string;
 }
 
 type ToolCategoryType = {
@@ -120,15 +118,11 @@ const tools: ToolsType = {
         name: 'KOHO',
         description: 'Financial life becomes much easier with KOHO',
         url: 'https://web.koho.ca/referral/SILVIOKOHO',
-        code: 'SILVIOKOHO',
-        bonus: '$20'
       },
       {
         name: 'Wealthsimple',
         description: 'A very intuitive and complete investment platform',
         url: 'https://wealthsimple.com/',
-        code: '6CB9OG',
-        bonus: '$25'
       },
       {
         name: 'Nubank',

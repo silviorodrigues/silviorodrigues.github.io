@@ -19,9 +19,7 @@ export default function Tools() {
                 <li className="text-neutral-400 text-[.92em]" key={index}>
                   <a href={ `${tool.url}?utm_source=silviorodrigues.dev` } target="_blank" className="underline underline-offset-4 text-neutral-200">
                     { tool.name }
-                  </a> - { tool.description } {
-                    tool.code && tool.bonus && renderCode(tool.code, tool.bonus)
-                  }
+                  </a> - { tool.description }
                 </li>
               )
             }) }
@@ -29,15 +27,6 @@ export default function Tools() {
         </div>
       )
     });
-
-  const renderCode = (code: string, bonus: string) => {
-    return (
-      <span className="text-neutral-200 italic">
-        • Get <span className="font-bold">{ bonus }</span> using my code <code className="p-1 rounded text-sm bg-green-900 text-green-200">{ code }</code>
-      </span>
-    )
-  }
-
   return (
     <>
       <PageTitle text="Tools I use" emoji="🛠️"/>
