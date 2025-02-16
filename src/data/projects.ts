@@ -1,5 +1,20 @@
 const projects = [
   {
+    name: 'alugaTI',
+    logo: `
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 45 44"
+      >
+        <path d="M17.1712 16.5619V32.2118H20.8551V16.5619H26.8784V13.3082H11.1479V16.5619H17.1712Z" fill="currentColor"/>
+        <path d="M28.8658 13.3082V32.2118H32.5228V13.3082H28.8658Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.22609 0C4.0493 0 0.66333 3.38596 0.66333 7.56276V36.1332C0.66333 40.31 4.04929 43.696 8.22609 43.696H36.7965C40.9733 43.696 44.3593 40.31 44.3593 36.1332V7.56276C44.3593 3.38597 40.9733 0 36.7965 0H8.22609ZM4.58476 7.56276C4.58476 5.55171 6.21504 3.92143 8.22609 3.92143H36.7965C38.8076 3.92143 40.4379 5.55171 40.4379 7.56276V36.1332C40.4379 38.1443 38.8076 39.7745 36.7965 39.7745H8.22609C6.21504 39.7745 4.58476 38.1443 4.58476 36.1332V7.56276Z" fill="currentColor"/>
+      </svg>
+    `,
+    url: 'https://alugati.com',
+    description: 'A company focused on outsourcing IT infrastructure for companies. With a modern and innovative approach, we seek to provide our customers with cutting-edge equipment and specialized technical support.',
+  },
+  {
     name: 'Front In Vale',
     logo: `
       <svg
