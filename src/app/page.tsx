@@ -14,7 +14,7 @@ export default function Home() {
         currently working at <a className="underline underline-offset-4" href={ career[0].url } target="_blank">{career[0].company }</a> 💼
       </p>
       <p className="text-neutral-400">
-        beginner maker, check <Link className="underline underline-offset-4" href="/projects">my projects</Link> 🧪
+        part-time builder, check <Link className="underline underline-offset-4" href="/projects">my projects</Link> 🧪
       </p>
     </div>
   )

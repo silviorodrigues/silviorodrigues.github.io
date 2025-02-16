@@ -3,6 +3,7 @@ import Image from 'next/image'
 import profilePicture from 'public/images/profile-picture.png';
 import career from '@/data/career';
 import PageTitle from '@/components/page-title';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -55,7 +56,7 @@ export default function About() {
             I&apos;ve been <strong className="text-neutral-200">writing code since 2013</strong> and I&apos;m currently working at { career[0].company } as a { career[0].title }.
           </p>
           <p className="text-neutral-400 mb-4">
-          I love lists, planning things and I&apos;ve been trying to <strong className="text-neutral-200">create some side projects</strong>. Outside of work life, I like trying new beers and watching soccer (yes, I have a list for those things too).
+          I love lists, planning things and I&apos;ve been trying to <Link href="/projects" className="font-bold underline underline-offset-4 text-neutral-200">create some side projects</Link>. Outside of work life, I like trying new beers and watching soccer (yes, I have a list for those things too).
           </p>
         </div>
       </section>
