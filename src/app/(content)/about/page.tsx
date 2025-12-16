@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image'
-import profilePicture from 'public/images/profile-picture.png';
+import profilePicture from '/public/images/profile-picture.png';
 import career from '@/data/career';
 import PageTitle from '@/components/page-title';
 import Link from 'next/link';
