@@ -126,7 +126,7 @@
       "id": "US-9",
       "priority": 9,
       "title": "GitHub Pages deploy workflow",
-      "passes": false,
+      "passes": true,
       "description": "As Silvio, I want pushes to main to publish the static site automatically, so I don't have to deploy by hand.",
       "acceptanceCriteria": [
         "GitHub Actions workflow: build the Next.js static export, then actions/deploy-pages, triggered on push to main",

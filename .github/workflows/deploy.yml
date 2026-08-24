@@ -1,0 +1,74 @@
+# Builds the Next.js static export and publishes it to GitHub Pages.
+#
+# The Cloudflare Worker in worker/ is deliberately NOT deployed here — it ships
+# separately via a manual `wrangler deploy` (see worker/README.md).
+#
+# Repo setup required once: Settings → Pages → Build and deployment → Source:
+# "GitHub Actions", and a repository variable NEXT_PUBLIC_SUBSCRIBE_WORKER_URL
+# (Settings → Secrets and variables → Actions → Variables) holding the deployed
+# Worker URL. Next inlines NEXT_PUBLIC_* at build time, so it must be present in
+# the build step's environment — an empty value leaves the subscribe form stuck
+# in its error state.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one deploy at a time; never cancel an in-flight production deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build static export
+        env:
+          NEXT_PUBLIC_SUBSCRIBE_WORKER_URL: ${{ vars.NEXT_PUBLIC_SUBSCRIBE_WORKER_URL }}
+        run: npm run build
+
+      # Belt and braces: keeps any Jekyll pipeline from swallowing /_next/*.
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
