@@ -113,7 +113,7 @@
       "id": "US-8",
       "priority": 8,
       "title": "Cloudflare Worker for Resend integration",
-      "passes": false,
+      "passes": true,
       "description": "As Silvio, I want a small serverless endpoint that adds emails to my Resend audience, so the static site can have a working subscribe form without a server.",
       "acceptanceCriteria": [
         "A worker.js (or worker/ dir) outside the Next.js static bundle implementing a POST handler that validates the email and calls Resend's contacts/audience API using an API key read from Worker environment bindings (never hardcoded)",
