@@ -14,7 +14,16 @@ type PostPageProps = {
 }
 
 export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }))
+  const posts = getAllPosts()
+
+  // `output: 'export'` requires at least one generated path for a dynamic route.
+  // This placeholder resolves to the 404 page (getPostBySlug won't find it) and
+  // disappears on its own once a real post exists in content/posts/.
+  if (posts.length === 0) {
+    return [{ slug: '__no-posts-yet__' }]
+  }
+
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
