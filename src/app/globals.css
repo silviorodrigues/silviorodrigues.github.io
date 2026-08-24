@@ -2,23 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .nav {
-    @apply text-neutral-400 px-4 py-2 font-semibold hover:nav-hover;
-  }
-  .nav-active {
-    @apply text-neutral-100 underline underline-offset-8 decoration-2;
-  }
-  .nav-hover {
-    @apply text-neutral-100 [&:not(.nav-active)]:bg-neutral-800 rounded-lg transition duration-300;
-  }
+body {
+  background: #171717;
+  color: #fafafa;
+}
+
+a {
+  color: #6dd5ed;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #8fe3f7;
+}
+
+::selection {
+  background: #2193b0;
+  color: #fafafa;
 }
 
 .linear-wipe {
   background: linear-gradient(to right, #2193b0 20%, #6dd5ed 40%, #6dd5ed 60%, #2193b0 80%);
   background-size: 200% auto;
   background-clip: text;
-  text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s linear infinite;

@@ -1,0 +1,164 @@
+{
+  "title": "Personal Website Revamp — Single-page Next.js rebuild",
+  "branchName": "ralph/personal-website-revamp",
+  "source": {
+    "handoff": "README.md",
+    "designReference": "Personal-Website.dc.html",
+    "designScreenshots": ["screenshots/01-hero-feed.png", "screenshots/02-post-detail.png", "screenshots/03-subscribe.png"],
+    "priorRepoHistory": "The previous Next.js multi-page site (/, /about, /projects, /tools) was deleted in commit 5eb8899 (\"cleanup\"). Its source is still recoverable via `git show b5e4821:<path>` (last commit before cleanup) and is a useful reference for existing conventions, project data/SVGs, and package versions — but the new build is single-page per README.md, and /tools is dropped entirely."
+  },
+  "summary": "Rebuild silviorodrigues.dev as a single scrolling page (hero, filterable Writing/Projects feed, newsletter signup) with a git-based MDX blog, replacing the deleted multi-page Next.js site. Stack: Next.js App Router with static export, Tailwind, MDX content, Resend newsletter via a separate Cloudflare Worker, deployed to GitHub Pages via Actions. Full details, design tokens, and copy are in README.md; pixel reference and mock interactivity are in Personal-Website.dc.html (a design reference only — not to be copied verbatim).",
+  "userStories": [
+    {
+      "id": "US-1",
+      "priority": 1,
+      "title": "Project scaffold: Next.js + Tailwind + static export",
+      "passes": true,
+      "description": "As a developer, I want a working Next.js App Router project configured for static export with Tailwind and the site's design tokens, so later stories have a buildable foundation.",
+      "acceptanceCriteria": [
+        "package.json, tsconfig.json, next.config.js (output: 'export'), tailwind.config.ts, postcss.config.js, .eslintrc.json, .editorconfig, .gitignore restored/recreated (reference old versions via `git show b5e4821:<path>`, e.g. next.config.js needs output:'export' added which the old one didn't have)",
+        "Tailwind config / globals.css encode the Design Tokens from README.md: background #171717 (page) / #1c1c1c (cards), borders #262626 / hover #404040, text #fafafa/#e5e5e5/#a3a3a3/#737373/#525252, accent #6dd5ed, gradient #2193b0→#6dd5ed→#6dd5ed→#2193b0 with the `shine` keyframe animation (reuse the existing `linear-wipe` CSS from the old globals.css, retrievable via `git show b5e4821:src/app/globals.css`), radii (10-12px cards/inputs, 999px pills, 50% avatar), selection color #2193b0 bg / #fafafa text",
+        "Raleway (400/500/600/700/800) loaded via Google Fonts (or next/font/google) and set as the base font",
+        "public/images/profile-picture.png present (copy from assets/profile-picture.png at repo root)",
+        "`npm install` and `npm run build` succeed with a placeholder homepage"
+      ]
+    },
+    {
+      "id": "US-2",
+      "priority": 2,
+      "title": "Header and Footer components",
+      "passes": true,
+      "description": "As a visitor, I want a sticky header with nav and a consistent footer, so I can navigate the single page and reach my contact links from anywhere.",
+      "acceptanceCriteria": [
+        "Sticky header: backdrop-filter blur(10px), background rgba(23,23,23,.82), bottom border 1px solid #262626",
+        "Header left: home icon SVG (currentColor) linking to #top; reuse the icon path from the old src/components/header.tsx (`git show b5e4821:src/components/header.tsx`)",
+        "Header right: nav links 'Writing' (#work), 'Contact' (#subscribe); pill hover state background #262626, color #fafafa, border-radius 8px",
+        "Footer: centered icon row (mail via mailto:hi@silviorodrigues.dev, LinkedIn, GitHub) reusing SVGs/links from old src/components/footer.tsx; '© 2026 Silvio Rodrigues' at 12.5px, #525252",
+        "LinkedIn/GitHub links open in a new tab"
+      ]
+    },
+    {
+      "id": "US-3",
+      "priority": 3,
+      "title": "Hero section (#top)",
+      "passes": true,
+      "description": "As a visitor, I want a hero section that introduces Silvio, so I immediately understand who he is and how to reach him.",
+      "acceptanceCriteria": [
+        "84x84 circular avatar using public/images/profile-picture.png, 2px border #262626",
+        "Gradient H1 'Silvio Rodrigues' using the linear-wipe/shine treatment, clamp(34px,6vw,52px)",
+        "Bold 18px white role line: 'Staff Software Engineer @ KOHO' with KOHO linking to koho.ca (new tab)",
+        "Muted 16px line: 'part-time builder, writing about design systems, front-end and AI 🧪'",
+        "CTA row: solid pill 'Say hi 👋' linking to mailto:hi@silviorodrigues.dev, plus LinkedIn and GitHub icon links (new tab)",
+        "Section is anchored at id=\"top\""
+      ]
+    },
+    {
+      "id": "US-4",
+      "priority": 4,
+      "title": "Projects data and filter chips",
+      "passes": true,
+      "description": "As a visitor, I want to filter between Writing and Projects and see project cards, so I can browse only what I'm interested in.",
+      "acceptanceCriteria": [
+        "Section #work with gradient H2 'Writing & projects 🧪'",
+        "Filter chip row: All / Writing / Projects as a client component with local state ('all'|'writing'|'projects'), not persisted, no navigation",
+        "Active chip: solid #fafafa background, #171717 text; inactive: transparent background, 1px solid #333, #a3a3a3 text",
+        "Projects cluster: two static cards — alugaTI and Front In Vale — using the inline SVG logos and copy from the old src/data/projects.ts (`git show b5e4821:src/data/projects.ts`), each with name, description, 'Visit site →' external link (new tab); Front In Vale additionally shows a '3k+ people impacted' pill badge",
+        "Toggling the chips shows/hides the Writing and/or Projects clusters accordingly (Writing cluster can be a placeholder until US-5 wires real posts in)"
+      ]
+    },
+    {
+      "id": "US-5",
+      "priority": 5,
+      "title": "MDX blog pipeline and Writing cluster",
+      "passes": true,
+      "description": "As Silvio, I want to write posts as MDX files with frontmatter, so I can publish new writing via git without a CMS.",
+      "acceptanceCriteria": [
+        "content/posts/*.mdx files with frontmatter: title, date, tag, excerpt, readMins",
+        "Parsing via gray-matter; a lib module lists all posts sorted newest-first and exposes slug + frontmatter",
+        "At least one seed MDX post exists so the feed is populated",
+        "Writing cluster (inside #work, wired into the filter chips from US-4) renders one card per post: tag pill (color #6dd5ed, background rgba(109,213,237,.12)), date + read time (muted, 12px), title (bold 17px), excerpt (14.5px, #a3a3a3), 'Read post →' (#6dd5ed)",
+        "Clicking a Writing card navigates to its post route (implemented in US-6)"
+      ]
+    },
+    {
+      "id": "US-6",
+      "priority": 6,
+      "title": "Post detail route (/blog/[slug])",
+      "passes": true,
+      "description": "As a visitor, I want to read a full post on its own page, so I can consume the content and share a direct link.",
+      "acceptanceCriteria": [
+        "Route at /blog/[slug], statically generated at build time from the MDX files (generateStaticParams), rendered with next-mdx-remote or @next/mdx",
+        "'← Back' control, tag + date/read-time row, gradient H1 title, rendered MDX body",
+        "Footer block: 'Want to talk more about it?' line + solid 'Email me →' pill linking to mailto:hi@silviorodrigues.dev?subject=Re:%20<post title> (URL-encoded)",
+        "The Subscribe form/section (from US-7) is repeated below the footer block on this page",
+        "Header and Footer (US-2) are present on this route too"
+      ]
+    },
+    {
+      "id": "US-7",
+      "priority": 7,
+      "title": "Subscribe section and form",
+      "passes": true,
+      "description": "As a visitor, I want to subscribe to the newsletter by email, so I get notified of new posts.",
+      "acceptanceCriteria": [
+        "Section #subscribe with gradient H2 'Subscribe 📬' and one-line description",
+        "Email input + Subscribe button; client component with state email + status ('idle'|'submitting'|'success'|'error')",
+        "On submit: fetch(WORKER_URL, { method: 'POST', body: JSON.stringify({ email }) }) where WORKER_URL comes from a public env var (documented, not hardcoded)",
+        "On 2xx: swap the form for confirmation message \"You're in! Thanks for subscribing 🎉\"",
+        "On failure: inline error state shown under the input (this state doesn't exist in the HTML reference — this story adds it)",
+        "This section is reused as-is on the post detail route (US-6)"
+      ]
+    },
+    {
+      "id": "US-8",
+      "priority": 8,
+      "title": "Cloudflare Worker for Resend integration",
+      "passes": true,
+      "description": "As Silvio, I want a small serverless endpoint that adds emails to my Resend audience, so the static site can have a working subscribe form without a server.",
+      "acceptanceCriteria": [
+        "A worker.js (or worker/ dir) outside the Next.js static bundle implementing a POST handler that validates the email and calls Resend's contacts/audience API using an API key read from Worker environment bindings (never hardcoded)",
+        "CORS handling appropriate for the static site's origin",
+        "wrangler.toml configured for `wrangler deploy`",
+        "Short docs (in the worker directory or README) on required environment variables/secrets and how to deploy — do not actually deploy or require live credentials to complete this story"
+      ]
+    },
+    {
+      "id": "US-9",
+      "priority": 9,
+      "title": "GitHub Pages deploy workflow",
+      "passes": true,
+      "description": "As Silvio, I want pushes to main to publish the static site automatically, so I don't have to deploy by hand.",
+      "acceptanceCriteria": [
+        "GitHub Actions workflow: build the Next.js static export, then actions/deploy-pages, triggered on push to main",
+        "Workflow does not attempt to deploy the Cloudflare Worker (that stays a manual/separate `wrangler deploy` per US-8's docs)"
+      ]
+    },
+    {
+      "id": "US-10",
+      "priority": 10,
+      "title": "Assemble the single-page site and remove old routes",
+      "passes": true,
+      "description": "As a visitor, I want everything on one scrolling page matching the design reference, so the browsing experience matches Personal-Website.dc.html.",
+      "acceptanceCriteria": [
+        "app/page.tsx composes Header, Hero (#top), Writing & Projects feed (#work), Subscribe (#subscribe), Footer in that order",
+        "No /about, /projects, or /tools routes remain (About and Projects content is folded into the single page per README; Tools page is dropped entirely)",
+        "Visual output matches Personal-Website.dc.html and screenshots/*.png for spacing, colors, type and copy (high-fidelity per README — colors/type/spacing/copy are final)",
+        "Verified in a real browser via the dev-browser skill or equivalent: load the page, exercise the filter chips, open a post, submit the subscribe form (mock/expected failure is fine without a live Worker), confirm external links open in new tabs"
+      ]
+    },
+    {
+      "id": "US-11",
+      "priority": 11,
+      "title": "Final QA pass",
+      "passes": true,
+      "description": "As Silvio, I want the whole site to pass quality checks and behave correctly end to end before calling this done.",
+      "acceptanceCriteria": [
+        "`npm run lint`, `npm run build` (and typecheck if separate) all pass cleanly",
+        "Responsive check at mobile and desktop widths for hero, feed, and subscribe sections",
+        "Selection color (#2193b0 bg / #fafafa text) verified",
+        "No dead links or console errors on the homepage or a post detail page",
+        "All prior stories still pass after this pass (re-verify, don't just trust old commits)"
+      ]
+    }
+  ]
+}

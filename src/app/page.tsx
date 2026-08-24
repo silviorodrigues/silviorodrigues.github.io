@@ -1,21 +1,20 @@
-import Link from 'next/link';
-import career from '@/data/career';
+import Footer from '@/components/footer'
+import Hero from '@/components/hero'
+import WorkSection from '@/components/work-section'
+import Subscribe from '@/components/subscribe'
+import { getAllPosts } from '@/lib/posts'
 
 export default function Home() {
+  const posts = getAllPosts()
+
   return (
-    <div className="flex flex-col justify-center">
-      <p className="linear-wipe font-bold text-4xl mb-8">
-        Silvio Rodrigues
-      </p>
-      <p className="font-bold mb-2">
-        { career[0].title } 💅
-      </p>
-      <p className="text-neutral-400 mb-2">
-        currently working at <a className="underline underline-offset-4" href={ career[0].url } target="_blank">{career[0].company }</a> 💼
-      </p>
-      <p className="text-neutral-400">
-        part-time builder, check <Link className="underline underline-offset-4" href="/projects">my projects</Link> 🧪
-      </p>
+    <div className="flex min-h-screen flex-col">
+      <main className="mx-auto w-full max-w-[700px] flex-1 px-6 pb-24">
+        <Hero />
+        <WorkSection posts={posts} />
+        <Subscribe />
+      </main>
+      <Footer />
     </div>
   )
 }
