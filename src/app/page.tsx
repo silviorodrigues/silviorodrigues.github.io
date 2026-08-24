@@ -2,6 +2,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Hero from '@/components/hero'
 import WorkSection from '@/components/work-section'
+import Subscribe from '@/components/subscribe'
 import { getAllPosts } from '@/lib/posts'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="mx-auto w-full max-w-[700px] flex-1 px-6">
         <Hero />
         <WorkSection posts={posts} />
+        <Subscribe />
       </main>
       <Footer />
     </div>

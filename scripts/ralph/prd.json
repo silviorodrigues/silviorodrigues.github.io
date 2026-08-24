@@ -98,7 +98,7 @@
       "id": "US-7",
       "priority": 7,
       "title": "Subscribe section and form",
-      "passes": false,
+      "passes": true,
       "description": "As a visitor, I want to subscribe to the newsletter by email, so I get notified of new posts.",
       "acceptanceCriteria": [
         "Section #subscribe with gradient H2 'Subscribe 📬' and one-line description",

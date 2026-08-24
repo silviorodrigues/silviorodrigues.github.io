@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import Subscribe from '@/components/subscribe'
 import { mdxComponents } from '@/components/mdx-components'
 import { getAllPosts, getPostBySlug } from '@/lib/posts'
 import { formatPostDate } from '@/lib/format-date'
@@ -78,6 +79,8 @@ export default async function PostPage({ params }: PostPageProps) {
               Email me →
             </a>
           </div>
+
+          <Subscribe asSection={false} />
         </div>
       </main>
       <Footer />
