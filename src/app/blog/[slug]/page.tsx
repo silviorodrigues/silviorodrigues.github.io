@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Subscribe from '@/components/subscribe'
 import { mdxComponents } from '@/components/mdx-components'
@@ -50,7 +49,6 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
       <main className="mx-auto w-full max-w-[700px] flex-1 px-6 pb-24 pt-8">
         <Link
           href="/"
