@@ -91,8 +91,17 @@ for i in $(seq 1 $MAX_ITERATIONS); do
   if [[ "$TOOL" == "amp" ]]; then
     OUTPUT=$(cat "$SCRIPT_DIR/prompt.md" | amp --dangerously-allow-all 2>&1 | tee /dev/stderr) || true
   else
-    # Claude Code: use --dangerously-skip-permissions for autonomous operation, --print for output
-    OUTPUT=$(claude --dangerously-skip-permissions --print < "$SCRIPT_DIR/CLAUDE.md" 2>&1 | tee /dev/stderr) || true
+    # Claude Code: use --dangerously-skip-permissions for autonomous operation,
+    # --print --output-format json for output (so we can pull usage/cost per iteration)
+    RAW_JSON=$(claude --dangerously-skip-permissions --print --output-format json < "$SCRIPT_DIR/CLAUDE.md" | tee /dev/stderr) || true
+    OUTPUT=$(echo "$RAW_JSON" | jq -r '.result // empty' 2>/dev/null)
+    [ -z "$OUTPUT" ] && OUTPUT="$RAW_JSON"
+
+    USAGE_LINE=$(echo "$RAW_JSON" | jq -r 'select(.usage != null) | "tokens: in=\(.usage.input_tokens // 0) out=\(.usage.output_tokens // 0) cache_read=\(.usage.cache_read_input_tokens // 0) cache_creation=\(.usage.cache_creation_input_tokens // 0) | cost_usd=\(.total_cost_usd // "n/a") | turns=\(.num_turns // "n/a") | duration_ms=\(.duration_ms // "n/a")"' 2>/dev/null)
+    if [ -n "$USAGE_LINE" ]; then
+      echo "Iteration $i $USAGE_LINE"
+      echo "[Iteration $i usage] $USAGE_LINE" >> "$PROGRESS_FILE"
+    fi
   fi
   
   # Check for completion signal

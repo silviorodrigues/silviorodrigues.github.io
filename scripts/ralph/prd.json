@@ -84,7 +84,7 @@
       "id": "US-6",
       "priority": 6,
       "title": "Post detail route (/blog/[slug])",
-      "passes": false,
+      "passes": true,
       "description": "As a visitor, I want to read a full post on its own page, so I can consume the content and share a direct link.",
       "acceptanceCriteria": [
         "Route at /blog/[slug], statically generated at build time from the MDX files (generateStaticParams), rendered with next-mdx-remote or @next/mdx",
