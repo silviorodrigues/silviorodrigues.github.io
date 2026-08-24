@@ -31,3 +31,12 @@ Started: Sun 23 Aug 2026 22:36:55 EDT
   - No browser/MCP screenshot tooling was available in this session — verified via `next build` (static prerender succeeds) and `curl` against `next dev` SSR output (correct classes/structure present). Flagging that a real visual/browser check of header/footer is still recommended before US-10/US-11's final QA pass.
   - Anchor `id="top"`/`id="work"`/`id="subscribe"` need to live on the actual `<section>` elements once Hero (US-3) and the feed/subscribe sections (US-4/US-7) land — page.tsx currently has a temporary `id="top"` on the placeholder H1 that should move to the real hero `<section>` in US-3.
 ---
+
+## 2026-08-23 23:20 EDT - US-3
+- Implemented: `src/components/hero.tsx` — `<section id="top">` with 84x84 circular avatar (`next/image`, `images.unoptimized` from US-1 makes this safe under static export), `.linear-wipe` gradient H1, bold role line with KOHO link, muted tagline, and CTA row (solid `Say hi 👋` mailto pill + LinkedIn/GitHub icon links reusing the exact SVG paths/hover pattern from `footer.tsx`). Wired into `src/app/page.tsx` in place of the US-1/US-2 placeholder H1 (moved `id="top"` from the placeholder onto the real Hero section).
+- Files changed: src/components/hero.tsx (new), src/app/page.tsx, scripts/ralph/prd.json (US-3 passes:true), scripts/ralph/progress.txt.
+- Verified: `npm run lint` clean, `npx tsc --noEmit` clean, `npm run build` succeeds (static export), `npm run dev` + `curl localhost:3000` confirms hero markup/copy/links present in the RSC payload (KOHO link, "Say hi 👋", `id="top"`, profile-picture.png reference).
+- **Learnings for future iterations:**
+  - `next/image` works fine here despite static export — `images.unoptimized: true` (set in US-1's next.config.js) disables the server-side loader, so `<Image>` just emits a plain `<img>` at build time. Prefer it over a raw `<img>` tag for any future image usage (Projects logos are inline SVG so this won't recur until real content images show up).
+  - No browser/MCP screenshot tooling available in this session (same as US-2) — verified via build + curl against dev SSR/RSC output only. Real visual verification against `Personal-Website.dc.html`/screenshots is still deferred to US-10/US-11.
+---

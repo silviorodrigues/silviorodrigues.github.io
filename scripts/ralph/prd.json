@@ -41,7 +41,7 @@
       "id": "US-3",
       "priority": 3,
       "title": "Hero section (#top)",
-      "passes": false,
+      "passes": true,
       "description": "As a visitor, I want a hero section that introduces Silvio, so I immediately understand who he is and how to reach him.",
       "acceptanceCriteria": [
         "84x84 circular avatar using public/images/profile-picture.png, 2px border #262626",
