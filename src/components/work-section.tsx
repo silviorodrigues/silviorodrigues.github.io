@@ -42,7 +42,7 @@ export default function WorkSection({ posts }: { posts: Post[] }) {
       </div>
 
       {showWriting && (
-        <div className={`flex flex-col gap-3 ${showProjects ? 'mb-3' : ''}`}>
+        <div className={`flex flex-col gap-3 ${showProjects ? 'mb-6' : ''}`}>
           {posts.map((post) => (
             <Link
               key={post.slug}

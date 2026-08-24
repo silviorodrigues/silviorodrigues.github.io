@@ -137,7 +137,7 @@
       "id": "US-10",
       "priority": 10,
       "title": "Assemble the single-page site and remove old routes",
-      "passes": false,
+      "passes": true,
       "description": "As a visitor, I want everything on one scrolling page matching the design reference, so the browsing experience matches Personal-Website.dc.html.",
       "acceptanceCriteria": [
         "app/page.tsx composes Header, Hero (#top), Writing & Projects feed (#work), Subscribe (#subscribe), Footer in that order",
