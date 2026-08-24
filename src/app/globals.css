@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #171717;
+  color: #fafafa;
+}
+
+a {
+  color: #6dd5ed;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #8fe3f7;
+}
+
+::selection {
+  background: #2193b0;
+  color: #fafafa;
+}
+
+.linear-wipe {
+  background: linear-gradient(to right, #2193b0 20%, #6dd5ed 40%, #6dd5ed 60%, #2193b0 80%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}

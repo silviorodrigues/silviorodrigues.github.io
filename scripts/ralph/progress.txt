@@ -1,0 +1,22 @@
+# Ralph Progress Log
+Started: Sun 23 Aug 2026 22:36:55 EDT
+---
+
+## Codebase Patterns
+- Reference the deleted multi-page site via `git show b5e4821:<path>` for old conventions/copy — e.g. `src/components/header.tsx`, `src/components/footer.tsx`, `src/data/projects.ts` (SVG icon/logo path data), `src/app/globals.css` (`.linear-wipe`/`shine` gradient text).
+- Stack is Next.js 16 (App Router) + React 19, not the old repo's Next 14/React 18 — chose current versions to avoid the ~5 high-severity CVEs in Next 14.2.35/postcss (see `npm audit`). Static export still works the same (`output: 'export'` + `images.unoptimized: true` in `next.config.js`).
+- `next lint` is removed in Next.js 16. Use `eslint .` directly; `eslint.config.mjs` (flat config) imports `eslint-config-next/core-web-vitals` (subpath export, no `.js` suffix) and requires ESLint 9 (peer dep of `eslint-config-next@16`).
+- Raleway loads via `next/font/google` (`--font-raleway` CSS var) in `src/app/layout.tsx`, not a Google Fonts `<link>` tag.
+- Design tokens (colors, radii, gradient/shine, selection color) are centralized in `tailwind.config.ts` (theme.extend) and `src/app/globals.css`.
+- Next.js 16 auto-generates root `AGENTS.md` + `CLAUDE.md` (`@AGENTS.md` include) on `next dev`/`next build` with version-specific warnings — keep them committed (that's their intended use); project-specific notes were appended below the `@AGENTS.md` line in `CLAUDE.md` rather than replacing it.
+
+## 2026-08-23 22:45 EDT - US-1
+- Implemented: project scaffold — package.json (Next 16.3.2, React 19, Tailwind 3, TypeScript, ESLint 9), next.config.js (output: 'export', images.unoptimized), tsconfig.json, tailwind.config.ts with design tokens (background/card/border/text/accent colors, card/input/pill radii, shine keyframe+animation), postcss.config.js, eslint.config.mjs (flat config), .editorconfig, .gitignore, src/app/globals.css (selection color, .linear-wipe/shine gradient-text utility), src/app/layout.tsx (Raleway via next/font/google), src/app/page.tsx (placeholder homepage using the gradient heading), public/images/profile-picture.png (copied from assets/).
+- Files changed: package.json, package-lock.json, next.config.js, tsconfig.json, tailwind.config.ts, postcss.config.js, eslint.config.mjs, .editorconfig, .gitignore, src/app/globals.css, src/app/layout.tsx, src/app/page.tsx, public/images/profile-picture.png, CLAUDE.md (appended), AGENTS.md (Next-generated).
+- Verified: `npm install` (0 vulnerabilities), `npm run build` (static export to out/, both `/` and `/_not-found` prerendered), `npm run lint` (clean), dev server smoke-tested with curl (homepage renders "Silvio Rodrigues").
+- **Learnings for future iterations:**
+  - See Codebase Patterns above for the Next 16 / ESLint 9 gotchas — future stories should NOT need to touch build config again.
+  - `.eslintrc.json` does not work with ESLint 9 — always use `eslint.config.mjs` flat config in this repo.
+  - No MDX tooling installed yet (gray-matter, next-mdx-remote) — that's scoped to US-5, deliberately not added early to keep this story minimal.
+  - Header/Footer/Hero markup and copy (including exact SVG path data) can be lifted almost verbatim from `Personal-Website.dc.html`'s inline styles — it's the authoritative pixel reference per README.md.
+---
