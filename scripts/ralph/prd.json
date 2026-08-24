@@ -70,7 +70,7 @@
       "id": "US-5",
       "priority": 5,
       "title": "MDX blog pipeline and Writing cluster",
-      "passes": false,
+      "passes": true,
       "description": "As Silvio, I want to write posts as MDX files with frontmatter, so I can publish new writing via git without a CMS.",
       "acceptanceCriteria": [
         "content/posts/*.mdx files with frontmatter: title, date, tag, excerpt, readMins",

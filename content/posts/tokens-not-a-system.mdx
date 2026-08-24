@@ -1,0 +1,13 @@
+---
+title: Design tokens are not a design system
+date: 2026-08-18
+tag: design systems
+excerpt: Naming your spacing scale is not the hard part. The hard part is everything you didn't automate around it.
+readMins: 5
+---
+
+Every few months someone on the team ships a beautifully named token file — color.brand.500, space.md, radius.lg — and calls it a design system. It isn't one. A token file is a vocabulary. A design system is the grammar that makes the vocabulary mean something: the rules for when a component reaches for space.md instead of space.lg, the linting that catches a raw #2193b0 before it ships, the docs that explain why.
+
+I learned this the expensive way, rebuilding a token layer for a fintech product where every squad had its own idea of "primary button." The tokens were fine. What was missing was enforcement — a build step that failed CI when someone hardcoded a hex value, and a component library that made the token the path of least resistance instead of an opt-in.
+
+So now, before I name a single token, I ask where it will be enforced. If the answer is "in the Figma file," that's not enough. If it's "in the linter and the component props," we're building a system, not a glossary.

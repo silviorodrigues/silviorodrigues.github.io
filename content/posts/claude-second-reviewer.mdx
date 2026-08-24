@@ -1,0 +1,13 @@
+---
+title: Using Claude as a second reviewer, not an autopilot
+date: 2026-08-03
+tag: ai
+excerpt: "The prompt that changed my review habits: 'what would you push back on here?' — not 'write this for me.'"
+readMins: 5
+---
+
+I resisted AI code review tools for a while, mostly because the first ones I tried just rewrote diffs into something plausible-looking without explaining why. What changed my mind was flipping the question: instead of asking for a fix, I ask what a careful reviewer would flag — naming, edge cases, a missing test — and read the reasoning before touching any code.
+
+It's caught real things: an off-by-one in a pagination cursor, a component re-rendering on every keystroke because a callback wasn't memoized, a date comparison that silently broke across time zones. None of these were exotic bugs. They were the kind a tired human reviewer misses on a Friday afternoon.
+
+The habit that stuck is treating it like a second pair of eyes with infinite patience, not a replacement for my own judgment. I still own every line that ships. I just get to that line with fewer blind spots.

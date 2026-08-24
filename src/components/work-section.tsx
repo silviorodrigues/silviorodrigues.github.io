@@ -1,7 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { projects } from '@/data/projects'
+import type { Post } from '@/lib/posts'
+import { formatPostDate } from '@/lib/format-date'
 
 type Filter = 'all' | 'writing' | 'projects'
 
@@ -11,7 +14,7 @@ const filters: { key: Filter; label: string }[] = [
   { key: 'projects', label: 'Projects' },
 ]
 
-export default function WorkSection() {
+export default function WorkSection({ posts }: { posts: Post[] }) {
   const [filter, setFilter] = useState<Filter>('all')
 
   const showWriting = filter === 'all' || filter === 'writing'
@@ -40,7 +43,25 @@ export default function WorkSection() {
 
       {showWriting && (
         <div className={`flex flex-col gap-3 ${showProjects ? 'mb-3' : ''}`}>
-          <p className="m-0 text-[14.5px] text-text-muted">More writing coming soon.</p>
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="flex flex-col gap-2 rounded-card border border-border bg-card px-5 py-[18px] transition-colors hover:border-border-hover"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="rounded-pill bg-accent/[.12] px-[9px] py-[3px] text-[11px] font-bold tracking-[.03em] text-accent">
+                  {post.tag}
+                </span>
+                <span className="text-xs text-text-faint">
+                  {formatPostDate(post.date)} · {post.readMins} min read
+                </span>
+              </div>
+              <p className="m-0 text-[17px] font-bold text-text-primary">{post.title}</p>
+              <p className="m-0 text-[14.5px] leading-[1.55] text-text-muted">{post.excerpt}</p>
+              <span className="text-[13px] font-semibold text-accent">Read post →</span>
+            </Link>
+          ))}
         </div>
       )}
 
