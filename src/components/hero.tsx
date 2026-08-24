@@ -8,7 +8,7 @@ export default function Hero() {
         alt="Silvio Rodrigues"
         width={84}
         height={84}
-        className="h-[84px] w-[84px] rounded-full border-2 border-border object-cover"
+        className="h-[84px] w-[84px] rounded-[50%] border-2 border-border object-cover"
       />
       <h1 className="linear-wipe text-[clamp(34px,6vw,52px)] font-extrabold">Silvio Rodrigues</h1>
       <p className="m-0 text-lg font-bold text-text-primary">

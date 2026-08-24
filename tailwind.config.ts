@@ -2,9 +2,9 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    // Whole of src/, not just app|components|pages — src/data/projects.tsx carries
+    // classNames on its inline SVG logos and was silently missed by narrower globs.
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
     './content/**/*.mdx',
   ],
   theme: {

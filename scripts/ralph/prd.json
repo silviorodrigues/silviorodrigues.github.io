@@ -150,7 +150,7 @@
       "id": "US-11",
       "priority": 11,
       "title": "Final QA pass",
-      "passes": false,
+      "passes": true,
       "description": "As Silvio, I want the whole site to pass quality checks and behave correctly end to end before calling this done.",
       "acceptanceCriteria": [
         "`npm run lint`, `npm run build` (and typecheck if separate) all pass cleanly",
