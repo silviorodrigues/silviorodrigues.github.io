@@ -56,7 +56,7 @@
       "id": "US-4",
       "priority": 4,
       "title": "Projects data and filter chips",
-      "passes": false,
+      "passes": true,
       "description": "As a visitor, I want to filter between Writing and Projects and see project cards, so I can browse only what I'm interested in.",
       "acceptanceCriteria": [
         "Section #work with gradient H2 'Writing & projects 🧪'",
