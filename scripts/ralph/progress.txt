@@ -20,3 +20,14 @@ Started: Sun 23 Aug 2026 22:36:55 EDT
   - No MDX tooling installed yet (gray-matter, next-mdx-remote) — that's scoped to US-5, deliberately not added early to keep this story minimal.
   - Header/Footer/Hero markup and copy (including exact SVG path data) can be lifted almost verbatim from `Personal-Website.dc.html`'s inline styles — it's the authoritative pixel reference per README.md.
 ---
+
+## 2026-08-23 23:05 EDT - US-2
+- Implemented: `src/components/header.tsx` (sticky header, backdrop-blur, rgba background, home icon linking to `#top`, `Writing`/`Contact` nav pills with `#262626` hover) and `src/components/footer.tsx` (centered mail/LinkedIn/GitHub icon row, `© 2026 Silvio Rodrigues` at 12.5px `#525252`); wired both into `src/app/page.tsx` around the placeholder hero (added `id="top"` to the placeholder H1 since Header links there).
+- Files changed: src/components/header.tsx (new), src/components/footer.tsx (new), src/app/page.tsx, scripts/ralph/prd.json (US-2 passes:true), scripts/ralph/progress.txt.
+- Verified: `npm run lint` clean, `npx tsc --noEmit` clean, `npm run build` succeeds (static export), `npm run dev` + `curl localhost:3000` confirms header/footer render with expected classes/hrefs in the SSR HTML.
+- **Learnings for future iterations:**
+  - Personal-Website.dc.html has NO `<header>` element at all (it opens straight into `#top`) — the sticky header is spec'd only in README.md ("### 1. Header (sticky)") and PRD US-2, not in the HTML reference. Follow README/PRD over the .dc.html file when they diverge on structural elements.
+  - Icon link hover styling pattern used throughout the reference (hero LinkedIn/GitHub, footer icons): default `color:#a3a3a3` (i.e. `text-text-muted`), hover `color:#fafafa;background:#262626`, `border-radius:8px` — reused this same pattern for the header nav pills since README only specifies the hover state, not the resting state.
+  - No browser/MCP screenshot tooling was available in this session — verified via `next build` (static prerender succeeds) and `curl` against `next dev` SSR output (correct classes/structure present). Flagging that a real visual/browser check of header/footer is still recommended before US-10/US-11's final QA pass.
+  - Anchor `id="top"`/`id="work"`/`id="subscribe"` need to live on the actual `<section>` elements once Hero (US-3) and the feed/subscribe sections (US-4/US-7) land — page.tsx currently has a temporary `id="top"` on the placeholder H1 that should move to the real hero `<section>` in US-3.
+---

@@ -27,7 +27,7 @@
       "id": "US-2",
       "priority": 2,
       "title": "Header and Footer components",
-      "passes": false,
+      "passes": true,
       "description": "As a visitor, I want a sticky header with nav and a consistent footer, so I can navigate the single page and reach my contact links from anywhere.",
       "acceptanceCriteria": [
         "Sticky header: backdrop-filter blur(10px), background rgba(23,23,23,.82), bottom border 1px solid #262626",
