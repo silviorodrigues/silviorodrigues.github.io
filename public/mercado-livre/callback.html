@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-VGlx47DOxelLGASv94koXNxVTR2OIAegt4+j+jlw2jY='; style-src 'sha256-HFbB0zNlTNiQhCUaRj0ssEH1+LDqFO9C8/0X0ATxrp4='; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'">
+<script>
+(() => {
+  'use strict'
+  let query = window.location.search
+  const hadFragment = window.location.hash.length > 0
+  let clean = false
+  try {
+    window.history.replaceState(null, '', window.location.pathname)
+    clean = !window.location.search && !window.location.hash
+  } catch { /* Fail closed: never display a code if URL cleanup failed. */ }
+  let result = { kind: 'invalid' }
+  if (clean && !hadFragment && query.length <= 8192) {
+    const params = new URLSearchParams(query)
+    const allowed = new Set(['code', 'state', 'error', 'error_description'])
+    const entries = [...params]
+    const valid = entries.every(([key, value]) => allowed.has(key) &&
+      params.getAll(key).length === 1 && value.length > 0 && value.length <= 2048 &&
+      !/[\u0000-\u001f\u007f]/.test(value))
+    if (entries.length === 0) result = { kind: 'empty' }
+    else if (valid && params.has('state')) {
+      if (params.has('code') && !params.has('error') && !params.has('error_description')) {
+        result = { kind: 'code', code: params.get('code'), state: params.get('state') }
+      } else if (params.has('error') && !params.has('code')) {
+        result = { kind: 'error', error: params.get('error'), description: params.get('error_description') || '' }
+      }
+    }
+  }
+  query = ''
+  document.addEventListener('DOMContentLoaded', () => {
+    const status = document.getElementById('status')
+    const section = document.getElementById('transfer')
+    const data = document.getElementById('data')
+    const notice = document.getElementById('notice')
+    const copy = document.getElementById('copy')
+    let active = false
+    let generation = 0
+    let deadline = 0
+    const clear = () => {
+      active = false
+      generation += 1
+      data.value = ''
+      result = null
+      section.hidden = true
+      notice.textContent = ''
+      status.textContent = 'Dados removidos desta página. Se necessário, reinicie a autorização no cliente local.'
+    }
+    const expireIfNeeded = () => {
+      if (active && Date.now() >= deadline) clear()
+      return !active
+    }
+    if (!clean) {
+      status.textContent = 'Não foi possível limpar o endereço. Feche esta aba e reinicie a autorização em um navegador compatível.'
+    } else if (result.kind === 'code' && window.top === window.self) {
+      active = true
+      deadline = Date.now() + 5 * 60 * 1000
+      data.value = JSON.stringify({ code: result.code, state: result.state,
+        redirect_uri: 'https://silviorodrigues.dev/mercado-livre/callback.html' }, null, 2)
+      section.hidden = false
+      status.textContent = 'Código recebido. A conexão ainda não foi validada.'
+      setTimeout(clear, 5 * 60 * 1000)
+    } else if (result.kind === 'error') {
+      status.textContent = 'Autorização não concluída: ' + result.error +
+        (result.description ? ' — ' + result.description : '') + '. Reinicie pelo cliente local.'
+    } else if (result.kind === 'empty') {
+      status.textContent = 'Nenhum código recebido. Inicie a autorização pelo cliente local; recarregar esta página não recupera dados anteriores.'
+    } else {
+      status.textContent = 'Resposta inválida ou incompleta. Nenhum código será utilizado. Reinicie a autorização pelo cliente local.'
+    }
+    result = null
+    copy.addEventListener('click', async () => {
+      if (expireIfNeeded() || copy.disabled) return
+      const current = generation
+      copy.disabled = true
+      try {
+        if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable')
+        await navigator.clipboard.writeText(data.value)
+        if (active && current === generation) notice.textContent = 'Copiado. Cole somente no cliente local confiável e depois limpe a área de transferência e seu histórico.'
+      } catch {
+        if (active && current === generation) {
+          data.focus()
+          data.select()
+          notice.textContent = 'Cópia automática indisponível. Copie manualmente o texto selecionado, somente para o cliente local confiável.'
+        }
+      } finally { copy.disabled = false }
+    })
+    document.getElementById('clear').addEventListener('click', clear)
+    window.addEventListener('pagehide', clear)
+    window.addEventListener('pageshow', event => {
+      if (event.persisted) clear()
+      else expireIfNeeded()
+    })
+    window.addEventListener('focus', expireIfNeeded)
+    document.addEventListener('visibilitychange', expireIfNeeded)
+  }, { once: true })
+})()
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="data:,">
+<title>Retorno de autorização | Mercado Livre</title>
+<style>
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #171717; color: #fafafa; }
+body { margin: 0; padding: 40px 20px; }
+main { max-width: 680px; margin: auto; }
+p, li { line-height: 1.6; }
+h1 { font-size: clamp(1.6rem, 5vw, 2.3rem); }
+.kicker { color: #6dd5ed; font-size: .85rem; letter-spacing: .08em; }
+.panel { border: 1px solid #444; padding: 20px; border-radius: 12px; margin: 24px 0; background: #202020; }
+textarea { box-sizing: border-box; width: 100%; min-height: 210px; padding: 12px; background: #111; color: #fafafa; border: 1px solid #666; border-radius: 8px; resize: vertical; overflow-wrap: anywhere; }
+button { padding: 12px 18px; margin: 12px 8px 0 0; background: #6dd5ed; color: #111; border: 0; border-radius: 8px; font: inherit; cursor: pointer; }
+button.secondary { background: #353535; color: #fafafa; }
+button:focus-visible, textarea:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.small { font-size: .9rem; color: #c4c4c4; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">SILVIO RODRIGUES · INTEGRAÇÃO LOCAL</p>
+<h1>Retorno do Mercado Livre</h1>
+<p id="status" role="status" aria-live="polite">JavaScript é necessário para limpar o endereço e processar esta resposta. Se esta mensagem permanecer, feche a aba e reinicie a autorização.</p>
+<section id="transfer" class="panel" hidden>
+<h2>Continue no cliente local</h2>
+<p>Transfira o pacote abaixo somente para o cliente local confiável que iniciou esta autorização. Não envie em chats, e-mails ou formulários online.</p>
+<label for="data">Pacote temporário (código + state)</label>
+<textarea id="data" readonly autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="clipboard-warning"></textarea>
+<p id="clipboard-warning" class="small">A área de transferência pode ser sincronizada ou registrada pelo sistema. A cópia é opcional; limpe também seu histórico após o uso.</p>
+<button id="copy" type="button">Copiar pacote</button>
+<button id="clear" class="secondary" type="button">Limpar esta página</button>
+<p id="notice" role="status" aria-live="polite"></p>
+</section>
+<h2>Antes de trocar o código</h2>
+<ol>
+<li>O cliente local deve comparar o state com o valor aleatório da tentativa pendente, conferir a validade e impedir reutilização.</li>
+<li>O cliente deve usar PKCE S256 e o code_verifier original, mantido apenas localmente, além do mesmo redirect_uri.</li>
+<li>Somente depois dessas verificações, o cliente local pode realizar a troca do código. Esta página não valida a identidade nem faz essa troca.</li>
+</ol>
+<p class="small">Esta página não carrega recursos externos, não grava dados em armazenamento do navegador e não faz chamadas de rede após o carregamento. Os dados exibidos são apagados ao sair ou após cinco minutos; se o navegador suspender a página, o prazo também é conferido ao retomar e antes de copiar. Este prazo limpa apenas a exibição local, não define a validade do código no Mercado Livre. Recarregar descarta os dados.</p>
+<p class="small">Limite importante: a requisição inicial pode conter o código nos registros do provedor de hospedagem. Limpar o endereço não apaga esses registros, nem o histórico da área de transferência. Não cole tokens, senhas, client_secret ou code_verifier nesta página.</p>
+<noscript><p>Sem JavaScript, os parâmetros permanecem no endereço. Feche esta aba e reinicie a autorização com JavaScript habilitado.</p></noscript>
+</main>
+</body>
+</html>
