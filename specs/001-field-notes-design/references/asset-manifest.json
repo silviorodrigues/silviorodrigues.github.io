@@ -1,0 +1,274 @@
+{
+  "fileKey": "WM76FJZj2IipsyAGoXOpvr",
+  "retrieved": "2026-10-12",
+  "assets": [
+    {
+      "path": "assets/day/koho.png",
+      "sourceNode": "8:5",
+      "bytes": 1001,
+      "sha256": "4f5e0f200160bfd315d4b3ea7c68446531146daa7cdb16febd1bbdd779fabce5"
+    },
+    {
+      "path": "assets/day/portrait-reference.png",
+      "sourceNode": "8:5",
+      "bytes": 15082,
+      "sha256": "c5b3c80334c30f4ddff97172ddc2290ad6aec32dd3fdbbe9c91a89d1fc8522ab"
+    },
+    {
+      "path": "assets/day/theme.svg",
+      "sourceNode": "8:5",
+      "bytes": 866,
+      "sha256": "ee8fd9808d13d5ed3b19bbb3de0e857253a94383178fae74acaba312499c426b",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/ochre.svg",
+      "sourceNode": "8:5",
+      "bytes": 257,
+      "sha256": "99d34b794fc4155e6ea9c92efe4251ca288442696389f8dd5826fc049ccf14a8",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"112\" height=\"112\" viewBox=\"0 0 112 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/squiggle.svg",
+      "sourceNode": "8:5",
+      "bytes": 372,
+      "sha256": "46daf8c9c927f802e827689c573fcd265207ac519f7038f95b6b55cf723792dc",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"65\" height=\"10\" viewBox=\"0 0 65 10\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/alugati.svg",
+      "sourceNode": "8:5",
+      "bytes": 1086,
+      "sha256": "5b475895607996c26992322f055840ea83a40c6c023a9ca00b314086814623d5",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/front-in-vale.svg",
+      "sourceNode": "8:5",
+      "bytes": 5440,
+      "sha256": "9082d7a2895783a24f3a16e59fafc1701c6d1624653ab0ea97364dfb7237ef6f",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"35.7913\" height=\"32.0003\" viewBox=\"0 0 35.7913 32.0003\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/divider.svg",
+      "sourceNode": "8:5",
+      "bytes": 610,
+      "sha256": "b6ef46f7dfdbd56ba6692650ef0b426131a09062511e22921e9f883fec4c70a9",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"712\" height=\"14\" viewBox=\"0 0 712 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/email.svg",
+      "sourceNode": "8:5",
+      "bytes": 554,
+      "sha256": "af9ba20dc17a7517303bd309a188e1b8e7be1ee8987bb3629df39a5deb8b484f",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/linkedin.svg",
+      "sourceNode": "8:5",
+      "bytes": 770,
+      "sha256": "22e2ec3d66a906daaece5b5bc048a1a02fbc0eac5c7d255a74b0102c2d712423",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/day/github.svg",
+      "sourceNode": "8:5",
+      "bytes": 1334,
+      "sha256": "1fa328f445fdf68c057c9f028c1a7fbb773103f5cdc7b076a77600b2897317b9",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/koho.png",
+      "sourceNode": "8:101",
+      "bytes": 1001,
+      "sha256": "4f5e0f200160bfd315d4b3ea7c68446531146daa7cdb16febd1bbdd779fabce5"
+    },
+    {
+      "path": "assets/evening/portrait-reference.png",
+      "sourceNode": "8:101",
+      "bytes": 15082,
+      "sha256": "c5b3c80334c30f4ddff97172ddc2290ad6aec32dd3fdbbe9c91a89d1fc8522ab"
+    },
+    {
+      "path": "assets/evening/theme.svg",
+      "sourceNode": "8:101",
+      "bytes": 611,
+      "sha256": "fa3199a3df30bce8f79e9448aec24ff13df0e252a456ad141fe3e2757c4a8637",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/ochre.svg",
+      "sourceNode": "8:101",
+      "bytes": 257,
+      "sha256": "99d34b794fc4155e6ea9c92efe4251ca288442696389f8dd5826fc049ccf14a8",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"112\" height=\"112\" viewBox=\"0 0 112 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/squiggle.svg",
+      "sourceNode": "8:101",
+      "bytes": 372,
+      "sha256": "46daf8c9c927f802e827689c573fcd265207ac519f7038f95b6b55cf723792dc",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"65\" height=\"10\" viewBox=\"0 0 65 10\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/alugati.svg",
+      "sourceNode": "8:101",
+      "bytes": 1086,
+      "sha256": "ae59a4a55b8e1c5fbb0970e014b95a79c6d48daf9e9e8b70bdb2974a1b7896a9",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/front-in-vale.svg",
+      "sourceNode": "8:101",
+      "bytes": 5440,
+      "sha256": "587b6be4445594f65ba040c95057289c400dbb48dc0779de391eecba7bbd090a",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"35.7913\" height=\"32.0003\" viewBox=\"0 0 35.7913 32.0003\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/divider.svg",
+      "sourceNode": "8:101",
+      "bytes": 610,
+      "sha256": "30d953e3a08a5d015a67fc866aad25c75b0be135e659f180110679f71ff71d36",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"712\" height=\"14\" viewBox=\"0 0 712 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/email.svg",
+      "sourceNode": "8:101",
+      "bytes": 554,
+      "sha256": "7ab258e2ad955b7061db0ed4e6c0dd974c58d331c2bcc518b8788adcc3919bbb",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/linkedin.svg",
+      "sourceNode": "8:101",
+      "bytes": 770,
+      "sha256": "1f9a7651e33d9fd65bec773e4e5da6a5d99863864c6ff047ad8a4330bea65368",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/evening/github.svg",
+      "sourceNode": "8:101",
+      "bytes": 1334,
+      "sha256": "f4a8c8138046cda0c1d76a8133aed8e9278ce57433e64214e3f0bbf58746378a",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/koho.png",
+      "sourceNode": "8:140",
+      "bytes": 1001,
+      "sha256": "4f5e0f200160bfd315d4b3ea7c68446531146daa7cdb16febd1bbdd779fabce5"
+    },
+    {
+      "path": "assets/mobile-day/portrait-reference.png",
+      "sourceNode": "8:140",
+      "bytes": 15082,
+      "sha256": "c5b3c80334c30f4ddff97172ddc2290ad6aec32dd3fdbbe9c91a89d1fc8522ab"
+    },
+    {
+      "path": "assets/mobile-day/theme.svg",
+      "sourceNode": "8:140",
+      "bytes": 866,
+      "sha256": "ee8fd9808d13d5ed3b19bbb3de0e857253a94383178fae74acaba312499c426b",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/ochre.svg",
+      "sourceNode": "8:140",
+      "bytes": 257,
+      "sha256": "99d34b794fc4155e6ea9c92efe4251ca288442696389f8dd5826fc049ccf14a8",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"112\" height=\"112\" viewBox=\"0 0 112 112\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/squiggle.svg",
+      "sourceNode": "8:140",
+      "bytes": 372,
+      "sha256": "46daf8c9c927f802e827689c573fcd265207ac519f7038f95b6b55cf723792dc",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"65\" height=\"10\" viewBox=\"0 0 65 10\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/alugati.svg",
+      "sourceNode": "8:140",
+      "bytes": 1086,
+      "sha256": "5b475895607996c26992322f055840ea83a40c6c023a9ca00b314086814623d5",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"36\" height=\"36\" viewBox=\"0 0 36 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/front-in-vale.svg",
+      "sourceNode": "8:140",
+      "bytes": 5440,
+      "sha256": "9082d7a2895783a24f3a16e59fafc1701c6d1624653ab0ea97364dfb7237ef6f",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"35.7913\" height=\"32.0003\" viewBox=\"0 0 35.7913 32.0003\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/divider.svg",
+      "sourceNode": "8:140",
+      "bytes": 588,
+      "sha256": "ab4e5e15f6cd28bd45fcd47bbb0c5cdc4a8641129c6643273a1ad00ba86bdeb5",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"342\" height=\"14\" viewBox=\"0 0 342 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/email.svg",
+      "sourceNode": "8:140",
+      "bytes": 554,
+      "sha256": "af9ba20dc17a7517303bd309a188e1b8e7be1ee8987bb3629df39a5deb8b484f",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/linkedin.svg",
+      "sourceNode": "8:140",
+      "bytes": 770,
+      "sha256": "22e2ec3d66a906daaece5b5bc048a1a02fbc0eac5c7d255a74b0102c2d712423",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"17\" height=\"17\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/mobile-day/github.svg",
+      "sourceNode": "8:140",
+      "bytes": 1334,
+      "sha256": "1fa328f445fdf68c057c9f028c1a7fbb773103f5cdc7b076a77600b2897317b9",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/card/koho.png",
+      "sourceNode": "7:42",
+      "bytes": 1001,
+      "sha256": "4f5e0f200160bfd315d4b3ea7c68446531146daa7cdb16febd1bbdd779fabce5"
+    },
+    {
+      "path": "assets/card/arrow.svg",
+      "sourceNode": "7:42",
+      "bytes": 353,
+      "sha256": "1c0a42d00fe23238c9634962560293f8d289f5dd9247c0ae761f2a9cfa6cf00f",
+      "svgRoot": "<svg preserveAspectRatio=\"none\" overflow=\"visible\" style=\"display: block;\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">"
+    },
+    {
+      "path": "assets/portrait-source.jpeg",
+      "sourceNode": "8:15 raw image",
+      "bytes": 15082,
+      "sha256": "c5b3c80334c30f4ddff97172ddc2290ad6aec32dd3fdbbe9c91a89d1fc8522ab"
+    },
+    {
+      "path": "day.png",
+      "sourceNode": "8:5",
+      "bytes": 101986,
+      "sha256": "ea00dbf8c5ee49612b6dce8e06dd17b712aa2483a85b4d340129c035788b40d6"
+    },
+    {
+      "path": "evening.png",
+      "sourceNode": "8:101",
+      "bytes": 101951,
+      "sha256": "5ee904113f3b4ada240cd0ab4c96546eb2af6de996cf0540baf4d3581cc418e0"
+    },
+    {
+      "path": "mobile-day.png",
+      "sourceNode": "8:140",
+      "bytes": 90399,
+      "sha256": "7610385549b24bc2d60218afcbc8c31b1c3abc9991d2a24fba575101d8000b11"
+    },
+    {
+      "path": "card.png",
+      "sourceNode": "7:42",
+      "bytes": 32003,
+      "sha256": "4aafd6d9c90f09bde1c0d68e9ac477a413c445e9f61dab66c6e7a4c4590ee204"
+    }
+  ]
+}

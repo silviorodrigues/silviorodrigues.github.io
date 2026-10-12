@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Silvio Rodrigues — curious about how things work, and how they could work better.">
+  <title>Silvio Rodrigues — Field Notes</title>
+  <script>
+    (() => {
+      let theme;
+      try { const saved = window.localStorage.getItem('field-notes-theme'); if (saved === 'day' || saved === 'evening') theme = saved; } catch {}
+      if (!theme) {
+        try { theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'evening' : 'day'; } catch { theme = 'day'; }
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="theme.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <div class="theme-row"><button class="theme-control" type="button" hidden aria-label="Switch to Evening">
+      <span class="icon-pair"><img class="day-icon" src="assets/day/theme.svg" width="18" height="18" alt="" onload="this.parentElement.classList.add('day-ready')" onerror="this.parentElement.classList.remove('day-ready')"><img class="evening-icon" src="assets/evening/theme.svg" width="18" height="18" alt="" onload="this.parentElement.classList.add('evening-ready')" onerror="this.parentElement.classList.remove('evening-ready')"><span class="icon-fallback" aria-hidden="true"><span class="day-label">Evening</span><span class="evening-label">Day</span></span></span>
+    </button></div>
+    <section class="intro" aria-labelledby="name">
+      <div class="portrait-area">
+        <div class="ochre-orbit" aria-hidden="true"><div class="ochre-morph"><img src="assets/day/ochre.svg" width="112" height="112" alt=""></div></div>
+        <div class="portrait-morph"><img class="portrait" src="assets/portrait.jpeg" width="112" height="112" alt="Silvio Rodrigues wearing sunglasses beneath a striped canopy"></div>
+      </div>
+      <h1 id="name">Silvio <em>Rodrigues</em></h1>
+      <p class="biography">Curious about how things work, and how they could work <span class="better">better<img src="assets/day/squiggle.svg" width="65" height="10" alt="" aria-hidden="true"></span>.</p>
+    </section>
+    <ol class="work-list" aria-label="Selected work">
+      <li id="koho"><a class="work-card" href="https://www.koho.ca/" target="_blank" rel="noopener noreferrer" aria-labelledby="koho-title" aria-describedby="koho-description">
+        <span class="logo-slot" aria-hidden="true"><img src="assets/day/koho.png" width="36" height="36" alt=""></span>
+        <div class="work-copy"><div class="title-row"><h2 class="work-title" id="koho-title">KOHO</h2></div><p class="work-description" id="koho-description">Staff Software Engineer, working out how everyday banking could feel simpler.</p></div>
+        <img class="card-arrow" src="assets/card/arrow.svg" width="18" height="18" alt="" aria-hidden="true">
+      </a></li>
+      <li id="alugati"><a class="work-card" href="https://alugati.com" target="_blank" rel="noopener noreferrer" aria-labelledby="alugati-title" aria-describedby="alugati-description">
+        <span class="logo-slot" aria-hidden="true"><img class="day-art" src="assets/day/alugati.svg" width="36" height="36" alt=""><img class="evening-art" src="assets/evening/alugati.svg" width="36" height="36" alt=""></span>
+        <div class="work-copy"><div class="title-row"><h2 class="work-title" id="alugati-title">alugaTI</h2></div><p class="work-description" id="alugati-description">Rethinking how companies get their tech: rent it, keep it current, and get support built in.</p></div>
+        <img class="card-arrow" src="assets/card/arrow.svg" width="18" height="18" alt="" aria-hidden="true">
+      </a></li>
+      <li id="front-in-vale"><a class="work-card" href="https://frontinvale.com.br" target="_blank" rel="noopener noreferrer" aria-labelledby="front-in-vale-title" aria-describedby="front-in-vale-description">
+        <span class="logo-slot" aria-hidden="true"><img class="day-art" src="assets/day/front-in-vale.svg" width="36" height="32" alt=""><img class="evening-art" src="assets/evening/front-in-vale.svg" width="36" height="32" alt=""></span>
+        <div class="work-copy"><div class="title-row"><h2 class="work-title" id="front-in-vale-title">Front In Vale</h2><span class="impact-badge">3k+ people impacted</span></div><p class="work-description" id="front-in-vale-description">A front-end conference in Brazil's Vale do Paraíba, sharing how the web works and how to build it better.</p></div>
+        <img class="card-arrow" src="assets/card/arrow.svg" width="18" height="18" alt="" aria-hidden="true">
+      </a></li>
+    </ol>
+  </main>
+  <footer class="social-footer" aria-label="Connect"><div class="divider" aria-hidden="true"><img class="day-art" src="assets/day/divider.svg" width="712" height="14" alt=""><img class="evening-art" src="assets/evening/divider.svg" width="712" height="14" alt=""></div><nav class="social-links" aria-label="Social links"><a href="mailto:hi@silviorodrigues.dev" aria-label="Email"><span class="icon-pair"><img class="day-icon" src="assets/day/email.svg" width="18" height="18" alt="" onload="this.parentElement.classList.add('day-ready')" onerror="this.parentElement.classList.remove('day-ready')"><img class="evening-icon" src="assets/evening/email.svg" width="18" height="18" alt="" onload="this.parentElement.classList.add('evening-ready')" onerror="this.parentElement.classList.remove('evening-ready')"><span class="icon-fallback" aria-hidden="true">Email</span></span></a>
+<a href="https://www.linkedin.com/in/silviorrr/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><span class="icon-pair"><img class="day-icon" src="assets/day/linkedin.svg" width="17" height="17" alt="" onload="this.parentElement.classList.add('day-ready')" onerror="this.parentElement.classList.remove('day-ready')"><img class="evening-icon" src="assets/evening/linkedin.svg" width="17" height="17" alt="" onload="this.parentElement.classList.add('evening-ready')" onerror="this.parentElement.classList.remove('evening-ready')"><span class="icon-fallback" aria-hidden="true">LinkedIn</span></span></a>
+<a href="https://github.com/silviorodrigues" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><span class="icon-pair"><img class="day-icon" src="assets/day/github.svg" width="18" height="18" alt="" onload="this.parentElement.classList.add('day-ready')" onerror="this.parentElement.classList.remove('day-ready')"><img class="evening-icon" src="assets/evening/github.svg" width="18" height="18" alt="" onload="this.parentElement.classList.add('evening-ready')" onerror="this.parentElement.classList.remove('evening-ready')"><span class="icon-fallback" aria-hidden="true">GitHub</span></span></a></nav></footer>
+</body>
+</html>
