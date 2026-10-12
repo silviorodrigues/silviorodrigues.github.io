@@ -118,5 +118,26 @@ homepage-only implementation scope.
 Added `.github/workflows/deploy.yml` to build `out/`, run Chromium checks and publish the generated
 site. The existing repository Pages configuration uses workflow publishing with `silviorodrigues.dev`,
 whose A records already point to GitHub Pages. The custom domain is retained in Pages settings;
-workflow publishing does not require restoring the legacy `public/CNAME` file. Deployment result and
-live verification will be recorded after the run finishes.
+workflow publishing does not require restoring the legacy `public/CNAME` file. Release commit: `d2efbc4345c41c4a38f35833355c5c6ce8f0a5a5`, pushed to `main`.
+
+[GitHub Actions run 38306735029](https://github.com/silviorodrigues/silviorodrigues.github.io/actions/runs/38306735029)
+succeeded: build/check job 1m10s, deploy job 10s, deployment completed 2026-10-12 at 20:51:15 UTC.
+The Linux runner selected Node 24.20.0, built `out/`, and passed all 23 Chromium scenarios in 32.6s.
+Workflow syntax also passed actionlint v1.7.12 locally. The pinned Node file was explicitly included
+in the commit because the machine's global Git ignore otherwise excludes `.tool-versions`.
+
+Published site: [silviorodrigues.dev](https://silviorodrigues.dev/). GitHub Pages reports `built`, with
+workflow publishing and the original custom domain retained. HTTPS requests for every one of the
+31 generated files returned 200 and matched the local output byte-for-byte, including fonts/licenses.
+
+Live browser verification covered 1280px desktop and 390px mobile in Day and Evening: no horizontal
+overflow, no failed images, unchanged heights of 1204px/1307px across themes, six links, functional
+switching and persistence after reload. All runtime resource requests stayed on the custom domain;
+there were no script errors or failed requests. Native Chrome also confirmed loaded fonts/artwork,
+keyboard Space switching, and a reachable mobile footer. Temporary viewport overrides were reset,
+and the published homepage was left open.
+
+Live captures/evidence under `test-results/field-notes/`: `live-day.png`, `live-evening.png`,
+`live-mobile-day.png`, `live-mobile-evening.png`, `live-assets.json` and `live-verification.json`.
+The prior owner-waived native text-only and full real-device/version matrix checks retain their
+recorded disposition; publishing verification does not relabel those gaps as executed passes.
